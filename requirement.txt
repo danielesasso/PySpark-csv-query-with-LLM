@@ -1,0 +1,7 @@
+pyspark
+pandas
+numpy
+langchain
+openai==0.28
+matplotlib
+json
