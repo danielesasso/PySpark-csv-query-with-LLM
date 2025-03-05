@@ -1,7 +1,8 @@
+ipykernel
 pyspark
 pandas
 numpy
 langchain
+langchain_community
 openai==0.28
 matplotlib
-json
