@@ -111,6 +111,7 @@ Alcune aree di potenziale contributo includono:
 
 Questo progetto è rilasciato sotto la Licenza MIT.  
 Per ulteriori dettagli, vedi il file `LICENSE` incluso nel repository.
+
 ---
 #### 7. Esempi di Output
 
