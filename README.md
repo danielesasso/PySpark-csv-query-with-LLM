@@ -32,7 +32,7 @@ Il codice è strutturato in un notebook Python, che consente una facile manipola
 ## 3. Installazione e Configurazione
 
 ### 3.1 Colab
-In caso di apertura del codice su Colab, assicurati di eseguire ogni cella in ordine
+In caso di apertura del codice su Colab, assicurati di inserire populated_matrix.csv nel colab e eseguire ogni cella in ordine
 
 ### 3.2 Prerequisiti
 - **Python con Tkinter**: Assicurati di avere Python 3.x installato con supporto Tkinter.
