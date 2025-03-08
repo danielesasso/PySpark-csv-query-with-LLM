@@ -31,7 +31,10 @@ Il codice è strutturato in un notebook Python, che consente una facile manipola
 
 ## 3. Installazione e Configurazione
 
-### 3.1 Prerequisiti
+### 3.1 Colab
+In caso di apertura del codice su Colab, assicurati di eseguire ogni cella in ordine
+
+### 3.2 Prerequisiti
 - **Python con Tkinter**: Assicurati di avere Python 3.x installato con supporto Tkinter.
 - **API di OpenAI GPT**: È necessaria una chiave API valida per utilizzare il modello GPT per l'analisi semantica della query.
 - **File CSV Tassonomico**:  
@@ -45,7 +48,7 @@ Il codice è strutturato in un notebook Python, che consente una facile manipola
   _**Nota:** I file presenti nel repository contengono dati e nomi sintetici, non appartenenti a persone reali._
 
 
-### 3.2 Configurazione dell'Ambiente
+### 3.3 Configurazione dell'Ambiente
 
 È consigliato utilizzare un ambiente virtuale Python per gestire le dipendenze.  
 Esegui i seguenti comandi per creare e attivare l'ambiente:
@@ -56,7 +59,7 @@ source myenv/bin/activate #Su Windows `myenv\Scripts\activate`
 
 ```
 
-### 3.3 Installazione delle Dipendenze
+### 3.4 Installazione delle Dipendenze
 
 **Prerequisito aggiuntivo: Installare Python con Tkinter**  
 Prima di installare le dipendenze, assicurati di avere Python con il supporto Tkinter installato:
@@ -73,7 +76,7 @@ Dopo aver attivato l'ambiente virtuale, installa le dipendenze necessarie esegue
 ```bash
 pip3 install -r requirements.txt
 ```
-### 3.4 Verifica dell'Installazione
+### 3.5 Verifica dell'Installazione
 Per verificare che tutto sia stato configurato correttamente, esegui uno script di test che utilizza le librerie installate.
 Questo ti aiuterà a confermare che l'ambiente è pronto per lo sviluppo e l'esecuzione del progetto.
 
