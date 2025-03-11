@@ -49,7 +49,7 @@ Aprire il codice su Colab tramite il tasto apposito una volta selezionato il fil
 <figure>
   <img src="photo/upload.png" alt="upload" width="30%">
 </figure> <br>
-Una volta dentro colab, selezionare l'icona della cartella e successivamente l'icona di upload (la prima a sinistra rispetto alle cartelle) e caricare il dataset csv.
+Una volta dentro colab, selezionare l'icona della cartella e successivamente l'icona di upload (la prima a sinistra rispetto alle cartelle) e caricare il dataset .csv.
 
 ### 3.2 PySpark_LLM.ipynb e mplgraph.py Prerequisiti
 - **Python con Tkinter**: Assicurati di avere Python 3.x installato con supporto Tkinter.
@@ -90,7 +90,7 @@ Questo ti aiuterà a confermare che l'ambiente è pronto per lo sviluppo e l'ese
 #### 3.2.4 Verifica dell'installazione (mplgraph.py)
 Per verificare che tutto sia stato configurato correttamente, una volta entrato all'interno modifica le seguenti righe:
   - riga 26: inserisci la key di openai
-  -riga 36: modifica il nome e/o il percorso del file .csv
+  - riga 36: modifica il nome e/o il percorso del file `.csv`
 
  Successivamente entra nella venv (secondo comando nella subsection 3.2.1) e esegui da terminale:
 
