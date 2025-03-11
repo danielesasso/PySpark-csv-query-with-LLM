@@ -6,3 +6,4 @@ langchain
 langchain_community
 openai==0.28
 matplotlib
+mplcursors
