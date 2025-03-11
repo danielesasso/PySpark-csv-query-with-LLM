@@ -31,10 +31,12 @@ Il codice è strutturato in un notebook Python, che consente una facile manipola
 
 ## 3. Installazione e Configurazione
 
-### 3.1 Colab
-In caso di apertura del codice su Colab, assicurati di inserire populated_matrix.csv nel colab e eseguire ogni cella in ordine
+### 3.1 Colab_PySpark_LLM.ipynb e demo_Colab_PySpark_LLM.ipynb
+*![Open in Colab](photo/opencolab.png)*
+Aprire il codice su Colab tramite il tasto apposito una volta selezionato il file, assicurati di scaricare almeno un file .csv del github (come populated_matrix.csv) e seguire tutte le istruzioni all'interno del colab per poi eseguire ogni cella in ordine.
 
-### 3.2 Prerequisiti
+
+### 3.2 PySpark_LLM.py e mplgraph.èy Prerequisiti
 - **Python con Tkinter**: Assicurati di avere Python 3.x installato con supporto Tkinter.
 - **API di OpenAI GPT**: È necessaria una chiave API valida per utilizzare il modello GPT per l'analisi semantica della query.
 - **File CSV Tassonomico**:  
