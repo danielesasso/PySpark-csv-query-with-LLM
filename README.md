@@ -45,7 +45,7 @@ Il codice è strutturato in un notebook Python, che consente una facile manipola
 
 ### 3.1 Colab_PySpark_LLM.ipynb e demo_Colab_PySpark_LLM.ipynb
 *![Open in Colab](photo/opencolab.png)* <br>
-Aprire il codice su Colab tramite il tasto apposito una volta selezionato il file, assicurati di scaricare almeno un file .csv tassonomico presente nel github (come populated_matrix.csv) e seguire tutte le istruzioni all'interno del colab per poi eseguire ogni cella in ordine.
+Aprire il codice su Colab tramite il tasto apposito una volta selezionato il file, assicurarsi di scaricare almeno un file .csv tassonomico presente nel github (come populated_matrix.csv) e seguire tutte le istruzioni all'interno del colab per poi eseguire ogni cella in ordine.
 <figure>
   <img src="photo/upload.png" alt="upload" width="30%">
 </figure> <br>
