@@ -10,7 +10,7 @@ Le competenze vengono rappresentate in forma binaria (0 o 1), permettendo di det
 
 I risultati dell'analisi sono visualizzati tramite:
 - Grafici che mostrano il numero di utenti idonei per le competenze selezionate.
-- Una tabella interattiva e una "heatmap" per evidenziare in modo immediato la distribuzione delle skill.  
+- Tabelle interattive con "heatmap" per evidenziare in modo immediato la distribuzione delle skill.  
 
 Questo strumento si rivolge principalmente alla gestione delle risorse umane e alla pianificazione strategica delle competenze all'interno delle organizzazioni.
 
@@ -51,9 +51,14 @@ Aprire il codice su Colab tramite il tasto apposito una volta selezionato il fil
 </figure> <br>
 Una volta dentro colab, selezionare l'icona della cartella e successivamente l'icona di upload (la prima a sinistra rispetto alle cartelle) e caricare il dataset .csv.
 
-### 3.2 PySpark_LLM.ipynb e mplgraph.py Prerequisiti
-- **Python con Tkinter**: Assicurati di avere Python 3.x installato con supporto Tkinter.
+### 3.2 mplgraph.py Prerequisiti aggiuntivi
+- **Python3.13.2 installato**: Assicurati di avere Python 3.13.2 installato, per controllare la versione installata inserire nel terminale:
 
+```bash
+python3 --version
+
+```
+Verrà restituito in output la versione di python attuale.
 
 #### 3.2.1 Configurazione dell'Ambiente
 
@@ -68,29 +73,16 @@ source myenv/bin/activate #Su Windows `myenv\Scripts\activate`
 
 #### 3.2.2 Installazione delle Dipendenze
 
-**Prerequisito aggiuntivo: Installare Python con Tkinter**  
-Prima di installare le dipendenze, assicurati di avere Python con il supporto Tkinter installato:
-
-- **MacOS**:  
-  ```bash
-  brew install python-tk
-  ```
-- **Windows**:
-Tkinter è generalmente incluso nelle installazioni standard di Python. Se per qualche motivo non fosse presente, verifica l'installazione di Python e, se necessario, reinstallalo includendo il supporto per Tkinter
-
 Dopo aver attivato l'ambiente virtuale, installa le dipendenze necessarie eseguendo:
 
 ```bash
 pip3 install -r requirements.txt
 ```
-#### 3.2.3 Verifica dell'Installazione (PySpark_LLM.ipynb)
-Per verificare che tutto sia stato configurato correttamente, esegui le prime celle contenenti le librerie installate.
-Questo ti aiuterà a confermare che l'ambiente è pronto per lo sviluppo e l'esecuzione del progetto, segui le istruzioni all'interno del notebook.
 
 #### 3.2.4 Verifica dell'installazione (mplgraph.py)
 Per verificare che tutto sia stato configurato correttamente, una volta entrato all'interno modifica le seguenti righe:
-  - riga 26: inserisci la key di openai
-  - riga 36: modifica il nome e/o il percorso del file `.csv`
+  - riga 29: inserisci la key di openai
+  - riga 40: modifica il nome e/o il percorso del file `.csv` (è consigliato mettere il csv nella stessa directory per motivi pratici)
 
  Successivamente entra nella venv (secondo comando nella subsection 3.2.1) e esegui da terminale:
 
@@ -140,16 +132,30 @@ Per ulteriori dettagli, vedi il file `LICENSE` incluso nel repository.
 Di seguito vengono riportati alcuni esempi visivi dei risultati ottenuti:
 
 - **Heatmap delle Competenze**:
-  - *![Heatmap con utenti](photo/heatmap.png)*
+  *![Heatmap con utenti](photo/heatmap.png)*
 
 - **Tabella Interattiva**:
-  - *![SVG image](photo/interactive_pixels.svg)*
-  - <figure>
+  *![SVG image](photo/interactive_pixels.svg)*
+    <figure>
       <img src="photo/interative_pixel_onclick.png" alt="onclick" width="30%">
-      <figcaption>In caso di click di un pixel</figcaption>
+      <br><figcaption>In caso di click di un pixel</figcaption>
     </figure>
 
 - **Barplot della Frequenza delle Skill**:
-  - *![Barplot](photo/barplot.png)*
+   *![Barplot](photo/barplot.png)*
+ 
+- **Mplcursor Linear Segmented Colormap**
+  *![Mplcursor](photo/mplgraph.png)*
+     <figure>
+      <img src="photo/onclickmpl.png" alt="mplonclick" width="70%">
+      <br> <figcaption>In caso di click di un pixel</figcaption> <br>
+    </figure>
+
+    
+    <figure>
+      <img src="photo/hover.png" alt="hover" width="30%">
+      <br> <figcaption>In caso il mouse fosse sopra una cella</figcaption><br>
+    </figure>
+
 
 
