@@ -1,161 +1,138 @@
-# Analisi Dinamica delle Competenze Aziendali con PySpark e LLM
+# Dynamic Analysis of Company Skills with PySpark and LLM
 
 ![alt text](photo/background_svg.svg)![alt text](photo/background_svg.svg)![alt text](photo/background_svg.svg)![alt text](photo/background_svg.svg)![alt text](photo/background_svg.svg)![alt text](photo/background_svg.svg)
 
-## 1. Titolo e Descrizione del Progetto
+## 1. Project Title and Description
 
-Questo progetto utilizza **PySpark** e il **Language Model di OpenAI (GPT)** per analizzare e filtrare un dataset tassonomico di competenze aziendali.  
-Attraverso il parsing delle query degli utenti, il sistema identifica e pesa le skill rilevanti in modo dinamico, considerando l'importanza attribuita a ciascuna competenza.  
-Le competenze vengono rappresentate in forma binaria (0 o 1), permettendo di determinare rapidamente quali utenti possiedono le skill richieste.
+This project uses **PySpark** and the **OpenAI Language Model (GPT)** to analyze and filter a taxonomic dataset of company skills.  
+By parsing user queries, the system dynamically identifies and weights the relevant skills, taking into account the importance assigned to each skill.  
+The skills are represented in binary form (0 or 1), allowing you to quickly determine which users possess the required skills.
 
-I risultati dell'analisi sono visualizzati tramite:
-- Grafici che mostrano il numero di utenti idonei per le competenze selezionate.
-- Tabelle interattive con "heatmap" per evidenziare in modo immediato la distribuzione delle skill.  
+The analysis results are displayed through:
+- Charts that show the number of eligible users for the selected skills.
+- Interactive tables with "heatmaps" to instantly highlight the distribution of skills.
 
-Questo strumento si rivolge principalmente alla gestione delle risorse umane e alla pianificazione strategica delle competenze all'interno delle organizzazioni.
-
----
-
-## 2. Motivazione
-
-Il progetto nasce dalla necessità di migliorare i processi di gestione delle risorse umane nelle aziende, facilitando l'identificazione delle competenze esistenti e la mappatura delle skill richieste per specifici ruoli o progetti.  
-Tradizionalmente, l'analisi delle competenze richiede un notevole impegno manuale e una valutazione soggettiva.  
-Utilizzando PySpark per i filtraggi di feature e l'intelligenza semantica di GPT, questo progetto:
-- Automatizza l'analisi dei dati per ridurre il tempo e gli errori tipici delle procedure manuali.
-- Fornisce una visione oggettiva e quantificabile delle capacità aziendali, essenziale per una pianificazione strategica delle risorse umane.
-  
-
-Il codice è strutturato in un notebook Python, che consente una facile manipolazione e visualizzazione dei dati.
+This tool is primarily aimed at human resource management (HR) and the strategic planning of skills within organizations.
 
 ---
 
-## 3. Installazione e Configurazione
+## 2. Motivation
 
-### 3.1 Prerequisiti generali
-- **API di OpenAI GPT**: È necessaria una chiave API valida per utilizzare il modello GPT per l'analisi semantica della query (non necessaria nella demo di colab **demo_Colab_PySpark_LLM.ipynb**.
-- **File CSV Tassonomico**:  
-  Questi file `.csv` strutturano un elenco dettagliato di competenze aziendali, organizzate secondo una tassonomia ben definita. Ogni elemento è diviso in due parti: un "tema" e una "feature specifica", separati da un trattino. Ad esempio, in "tools-laser", "tools" rappresenta il tema, mentre "laser" è la feature specifica. I file includono anche una colonna che inizia con "ID-" per identificare univocamente gli utenti, oltre ad altre informazioni utili come i ruoli, facilitando così l'associazione delle competenze ai singoli individui. Questa organizzazione permette di navigare e interpretare facilmente il set di dati in base alle necessità specifiche di analisi delle competenze.
+The project arises from the need to improve human resource management processes in companies, facilitating the identification of existing skills and the mapping of the skills required for specific roles or projects.  
+Traditionally, skills analysis requires considerable manual effort and subjective evaluation.  
+By leveraging PySpark for feature filtering and GPT's semantic intelligence, this project:
+- Automates data analysis to reduce time and minimize errors inherent in manual procedures.
+- Provides an objective and quantifiable view of company capabilities, essential for strategic human resource planning.
+
+The code is organized in a Python notebook, allowing for easy data manipulation and visualization.
+
+---
+
+## 3. Installation and Configuration
+
+### 3.1 General Prerequisites
+- **OpenAI GPT API**: A valid API key is required to use the GPT model for semantic query analysis (not necessary in the **demo_Colab_PySpark_LLM.ipynb** demo).
+- **Taxonomic CSV File**:  
+  These `.csv` files structure a detailed list of company skills, organized according to a well-defined taxonomy. Each element consists of two parts: a "theme" and a "specific feature", separated by a dash. For example, in "tools-laser", "tools" represents the theme, while "laser" is the specific feature. The files also include a column that starts with "ID-" to uniquely identify users, along with other useful information such as roles, thus facilitating the association of skills to individuals. This organization allows easy navigation and interpretation of the dataset based on specific analysis needs.
   <figure>
     <img src="photo/bar_themed.png" width="80%">
-    <br> <figcaption>Tassonomia</figcaption>
+    <br> <figcaption>Taxonomy</figcaption>
   </figure>
-  
 
-  _**Nota:** I file presenti nel repository contengono dati e nomi sintetici, non appartenenti a persone reali._
+  _**Note:** The files in the repository contain synthetic data and names that do not belong to real people._
 
-### 3.1 Colab_PySpark_LLM.ipynb e demo_Colab_PySpark_LLM.ipynb
-*![Open in Colab](photo/opencolab.png)* <br>
-Aprire il codice su Colab tramite il tasto apposito una volta selezionato il file, assicurarsi di scaricare almeno un file .csv tassonomico presente nel github (come populated_matrix.csv) e seguire tutte le istruzioni all'interno del colab per poi eseguire ogni cella in ordine.
-<figure>
-  <img src="photo/upload.png" alt="upload" width="30%">
-</figure> <br>
-Una volta dentro colab, selezionare l'icona della cartella e successivamente l'icona di upload (la prima a sinistra rispetto alle cartelle) e caricare il dataset .csv.
+#### 3.2.1 Environment Setup
 
-### 3.2 mplgraph.py Prerequisiti aggiuntivi
-- **Python3.13.2 installato**: Assicurati di avere Python 3.13.2 installato, per controllare la versione installata inserire nel terminale:
-
-```bash
-python3 --version
-
-```
-Verrà restituito in output la versione di python attuale.
-
-#### 3.2.1 Configurazione dell'Ambiente
-
-È consigliato utilizzare un ambiente virtuale Python per gestire le dipendenze.  
-Esegui i seguenti comandi per creare e attivare l'ambiente:
+It is recommended to use a Python virtual environment to manage dependencies.  
+Run the following commands to create and activate the environment:
 
 ```bash
 python3 -m venv myenv
-source myenv/bin/activate #Su Windows `myenv\Scripts\activate`
-
+source myenv/bin/activate # On Windows use `myenv\Scripts\activate`
 ```
 
-#### 3.2.2 Installazione delle Dipendenze
-
-Dopo aver attivato l'ambiente virtuale, installa le dipendenze necessarie eseguendo:
-
+#### 3.2.2 Installing Dependencies
+After activating the virtual environment, install the necessary dependencies by running:
 ```bash
+python3 -m venv myenv
 pip3 install -r requirements.txt
 ```
 
-#### 3.2.4 Verifica dell'installazione (mplgraph.py)
-Per verificare che tutto sia stato configurato correttamente, una volta entrato all'interno modifica le seguenti righe:
-  - riga 29: inserisci la key di openai
-  - riga 40: modifica il nome e/o il percorso del file `.csv` (è consigliato mettere il csv nella stessa directory per motivi pratici)
+#### 3.2.4 Installation Verification (mplgraph.py)
+To verify that everything has been set up correctly, once inside, modify the following lines:
 
- Successivamente entra nella venv (secondo comando nella subsection 3.2.1) e esegui da terminale:
+ - Line 29: Enter your OpenAI key.
+
+ - Line 40: Change the name and/or the path of the .csv file (it is recommended to place the CSV in the same directory for practical reasons).
+
+Then, enter the virtual environment (using the command in subsection 3.2.1) and run from the terminal:
 
 ```bash
 python3 mpl_graph.py
 ```
 
+## 4. Main Features
 
-## 4. Funzionalità Principali
+- **Dataset Loading and Analysis**: The code uses PySpark to read and analyze the CSV file. In particular, it extracts "thematic blocks"—that is, sets of columns grouped based on a common prefix (separated by a dash) representing a category or area of skills (for example, "tech_skills-"). The system then counts the occurrences of each block to provide a structured overview of the various areas of expertise present in the dataset.
 
-- **Caricamento e Analisi del Dataset**: Il codice sfrutta PySpark per leggere e analizzare il file CSV. In particolare, estrae i "blocchi tematici", ovvero insiemi di colonne raggruppate in base a un prefisso comune (separato da un trattino) che rappresenta una categoria o ambito di competenze (ad esempio "tech_skills-"). Il sistema quindi conta le occorrenze di ciascun blocco per fornire una panoramica strutturata delle diverse aree di competenza presenti nel dataset.
+- **User Query Parsing with GPT**: Using the OpenAI API, the system interprets user requests to identify which blocks or features are relevant and assigns a weight (from 0 to 1) to each skill.
+
+- **Data Filtering and Visualization**:
+  - Dynamically selects columns based on the assigned weights.
+  - Calculates a weighted score for each user and ranks them accordingly.
+  - Displays the results using an interactive table and charts to facilitate data interpretation.
+
+- **Interactive SVG Generation**:  
+  The system creates an interactive SVG file that allows users to explore the data intuitively: by clicking on individual pixels, you can view detailed information about users, making the navigation and analysis of large datasets more immediate and effective.
 
 
-- **Parsing delle Query Utente con GPT**: Utilizzando l'API di OpenAI, il sistema interpreta le richieste degli utenti per identificare quali blocchi o feature siano rilevanti e assegna un peso (da 0 a 1) a ciascuna competenza.
+## 5. Contributing
+Areas for potential contribution include:
 
-- **Filtraggio e Visualizzazione dei Dati**:
-  - Seleziona dinamicamente le colonne in base ai pesi assegnati.
-  - Calcola un punteggio pesato per ogni utente e li classifica in base ad essi.
-  - Visualizza i risultati tramite una tabella interattiva e grafici per facilitare l'interpretazione dei dati.
+- **Code Improvements**: Enhancements to the parsing and weighting with GPT, refactoring the code for better readability and performance.
+- **New Features**: Integration of additional data formats, support for new graphical visualizations, or development of a GUI for more intuitive interaction.
+- **Benchmarking and Experiments**: Evaluating different LLM models besides OpenAI's to improve the accuracy of query parsing.
 
-- **Generazione di un SVG Interattivo**:  
-  Il sistema crea un file SVG interattivo che permette agli utenti di esplorare i dati in maniera intuitiva: cliccando sui singoli pixel, è possibile visualizzare dettagli informativi relativi agli utenti, rendendo la navigazione e l’analisi di grandi moli di dati più immediata ed efficace.
+**To contribute:**
 
-## 5. Contribuire
-Alcune aree di potenziale contributo includono:
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and submit a pull request.
 
-- **Miglioramenti al Codice**: Miglioramento del parsing e ponderazione con GPT, refactoring del codice per migliorarne la leggibilità e le performance.
-- **Nuove Funzionalità**: Integrazione di ulteriori formati di dati, supporto per nuove visualizzazioni grafiche o sviluppo di una GUI per un'interazione più intuitiva.
-- **Benchmarking e Sperimentazioni**: Valutazione di differenti modelli LLM oltre OpenAI per migliorarne la precisione del parsing delle query.
 
-**Per contribuire:**
+## 6. License
 
-1. Fork del repository.
-2. Crea un nuovo branch.
-3. Apporta le modifiche e invia una pull request.
+This project is released under the MIT License.  
+For further details, see the `LICENSE` file included in the repository.
 
----
 
-## 6. Licenza
+#### 7. Output Examples
 
-Questo progetto è rilasciato sotto la Licenza MIT.  
-Per ulteriori dettagli, vedi il file `LICENSE` incluso nel repository.
+Below are some visual examples of the results obtained:
 
----
-#### 7. Esempi di Output
+- **Skills Heatmap**:
+  *![Skills Heatmap](photo/heatmap.png)*
 
-Di seguito vengono riportati alcuni esempi visivi dei risultati ottenuti:
-
-- **Heatmap delle Competenze**:
-  *![Heatmap con utenti](photo/heatmap.png)*
-
-- **Tabella Interattiva**:
+- **Interactive Table**:
   *![SVG image](photo/interactive_pixels.svg)*
     <figure>
       <img src="photo/interative_pixel_onclick.png" alt="onclick" width="30%">
-      <br><figcaption>In caso di click di un pixel</figcaption>
+      <br><figcaption>When a pixel is clicked</figcaption>
     </figure>
 
-- **Barplot della Frequenza delle Skill**:
+- **Skills Frequency Barplot**:
    *![Barplot](photo/barplot.png)*
  
 - **Mplcursor Linear Segmented Colormap**
   *![Mplcursor](photo/mplgraph.png)*
      <figure>
       <img src="photo/onclickmpl.png" alt="mplonclick" width="70%">
-      <br> <figcaption>In caso di click di un pixel</figcaption> <br>
+      <br> <figcaption>When a pixel is clicked</figcaption> <br>
     </figure>
 
     
     <figure>
       <img src="photo/hover.png" alt="hover" width="30%">
-      <br> <figcaption>In caso il mouse fosse sopra una cella</figcaption><br>
+      <br> <figcaption>When the mouse hovers over a cell</figcaption><br>
     </figure>
-
-
 
